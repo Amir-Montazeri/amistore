@@ -10,7 +10,7 @@ const categories = (
 
 	switch (type) {
 		case GET_CATEGORIES:
-			return payload;
+			return ["every", ...payload];
 		default:
 			return state;
 	}

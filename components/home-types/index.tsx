@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { getCategories } from "store/actions";
-import RenderedType from "./RenderedType";
+import RenderedCategories from "./RenderedCategories";
 
 interface PropsTypes {
 	categories: ICategories | null;
@@ -9,17 +10,26 @@ interface PropsTypes {
 }
 
 const HomeTypes = ({ categories, getCategories }: PropsTypes) => {
+	const router = useRouter();
+
 	useEffect(() => {
 		getCategories();
 	}, []);
 
+	useEffect(() => {
+		if (categories) {
+			!router.asPath.includes("?category=") &&
+				router.push(`/?category=${categories[0]}`);
+		}
+	}, [categories]);
+
 	if (!categories) return <div>loading...</div>;
 	return (
-		<div>
+		<ul className="px-[5px] pt-[14px] pb-[17px] whitespace-nowrap overflow-auto">
 			{categories.map(category => (
-				<RenderedType category={category} key={category} />
+				<RenderedCategories category={category} key={category} />
 			))}
-		</div>
+		</ul>
 	);
 };
 
