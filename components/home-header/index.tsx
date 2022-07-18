@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { SiZcash } from "react-icons/si";
 import { BsSearch } from "react-icons/bs";
 import logo from "utils/logo/amistor.png";
+import Link from "next/link";
 
 const placeholderItems: string[] = [
 	"Kitchen Products",
@@ -45,17 +46,17 @@ const HomeHeader = () => {
 					</div>
 				</div>
 			</div>
-			<div className="bg-[#f5f5f5] rounded-[50px] w-full h-[38px] flex items-center px-[15px]">
-				<BsSearch className="mr-[10px]" />
-				<p>
-					<span className="text-[.9em] text-[#999999]">
-						Search for
-					</span>{" "}
-					<span className="lowercase text-[.9em] text-[#000] font-semibold">
-						{placeholderText}
-					</span>
-				</p>
-			</div>
+			<Link href="/search">
+				<div className="bg-[#f5f5f5] rounded-[50px] w-full h-[38px] flex items-center px-[15px] cursor-text">
+					<BsSearch className="mr-[10px] text-[1.2em]" />
+					<p className="text-[1em]">
+						<span className=" text-[#999999]">Search for</span>{" "}
+						<span className="lowercase text-[#000] font-semibold">
+							{placeholderText}
+						</span>
+					</p>
+				</div>
+			</Link>
 		</div>
 	);
 };
