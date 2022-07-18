@@ -9,8 +9,6 @@ interface PropsTypes {
 }
 
 const HomeTypes = ({ categories, getCategories }: PropsTypes) => {
-	console.log(categories);
-
 	useEffect(() => {
 		getCategories();
 	}, []);

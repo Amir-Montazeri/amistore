@@ -1,5 +1,5 @@
 interface PropTypes {
-	category: ICategories;
+	category: string;
 }
 
 const RenderedType = ({ category }: PropTypes) => {
