@@ -1,16 +1,18 @@
 import type { NextPage } from "next";
 
-import { HomeHeader, Categories, Products } from "components";
+import { HomeHeader, Categories, Products, HomeRequirements } from "components";
 
 const Home: NextPage = () => {
 	return (
-		<>
-			<HomeHeader />
-			<Categories categories={[]} />{" "}
-			{/* the prop(s) will add in guard component! */}
-			<Products products={[]} isSearchingProducts={false} />{" "}
-			{/* the prop(s) will add in guard component! */}
-		</>
+		<HomeRequirements>
+			<>
+				<HomeHeader />
+				<Categories categories={[]} />{" "}
+				{/* the prop(s) will add in guard component! */}
+				<Products products={[]} isSearchingProducts={false} />{" "}
+				{/* the prop(s) will add in guard component! */}
+			</>
+		</HomeRequirements>
 	);
 };
 
