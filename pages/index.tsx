@@ -1,12 +1,16 @@
-import { HomeHeader, HomeTypes } from "components";
 import type { NextPage } from "next";
+
+import { HomeHeader, Categories, Products, HomeRequirements } from "components";
 
 const Home: NextPage = () => {
 	return (
-		<div>
+		<HomeRequirements>
 			<HomeHeader />
-			<HomeTypes />
-		</div>
+			<Categories categories={[]} />{" "}
+			{/* the prop(s) will add in guard component! */}
+			<Products products={[]} isSearchingProducts={false} />{" "}
+			{/* the prop(s) will add in guard component! */}
+		</HomeRequirements>
 	);
 };
 

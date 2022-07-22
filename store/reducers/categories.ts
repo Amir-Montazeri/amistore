@@ -1,16 +1,16 @@
-import { GET_CATEGORIES } from "../types";
+import { FETCH_CATEGORIES } from "../types";
 
 const INITIAL_STATE = null;
 
 const categories = (
-	state: ICategories | null = INITIAL_STATE,
+	state: ConvertedCategories[] | null = INITIAL_STATE,
 	action: CategoriesAction
 ) => {
 	const { type, payload } = action;
 
 	switch (type) {
-		case GET_CATEGORIES:
-			return ["every", ...payload];
+		case FETCH_CATEGORIES:
+			return [{ name: "every", urlForm: "every" }, ...payload];
 		default:
 			return state;
 	}
