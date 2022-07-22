@@ -5,7 +5,7 @@ import { getCategories } from "store/actions";
 import RenderedCategories from "./RenderedCategories";
 
 interface PropsTypes {
-	categories: ICategories | null;
+	categories: ICategories;
 	getCategories: () => void;
 }
 
@@ -25,7 +25,7 @@ const HomeTypes = ({ categories, getCategories }: PropsTypes) => {
 
 	if (!categories) return <div>loading...</div>;
 	return (
-		<ul className="px-[5px] pt-[14px] pb-[17px] whitespace-nowrap overflow-auto">
+		<ul className="px-[5px] pt-[14px] pb-[17px] mb-5 shadow-xl whitespace-nowrap overflow-auto scroll-thin">
 			{categories.map(category => (
 				<RenderedCategories category={category} key={category} />
 			))}
